@@ -1,0 +1,574 @@
+---
+title: "R Tutorial"
+output: html_notebook
+---
+
+This is Amos's R-Tutorial with all kinds of links and tricks accumulated over the last few years
+
+to stop a script running - press Esc key or press the red stop sign on the console top line.
+
+To clear all variables from previous runs:
+
+```{r}
+rm(list=ls()) # comes from remove
+
+# to clear specific variables, but not all
+rm(y, time1, time2, group, subject)
+
+```
+# In RStudio:
+type ALT- to get the <-  symbol in one stroke
+(Although the = assignment works too, other R users are not used to it, so avoid)
+
+ Run Selection Ctr-Enter
+ Run from here till end Ctr-Alt-E
+ Run from begining till here Ctr-Alt-E
+ 
+ to debug a function, enter browser()  where you want it to stop, then you can query everything
+ 
+If you get duplicating commands on the Console, restart the session. SHould take care of problem. may cause problems when running certain scripts.
+
+
+```{r}
+```
+
+# Useful links
+ R Markdown Notebook cheat sheet:
+ https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
+
+ general brief tutorial, also with many functions 
+ http://www.endmemo.com/program/R/index.php
+
+ best tutorial on loops and vectorization
+ https://www.datacamp.com/community/tutorials/tutorial-on-loops-in-r
+
+ explains vectorized if-statement
+ https://www.r-bloggers.com/for-loops-and-how-to-avoid-them/
+
+ explains the apply function to several columns in a data set at once
+ http://rforpublichealth.blogspot.co.il/2012/09/the-infamous-apply-function.html
+ https://www.r-bloggers.com/apply-lapply-rapply-sapply-functions-in-r/
+
+ Tutorial on Flow control and other R commands - very clear with e.g.'s
+ https://www.programiz.com/r-programming/if-else-statement
+ Tutorial on functions
+ https://www.datacamp.com/community/tutorials/functions-in-r-a-tutorial
+
+ a short page on data types:
+ https://www.tutorialspoint.com/r/r_data_types.htm
+
+ a long, but very clear page on data types:
+ http://petewerner.blogspot.com/2013/09/type-conversion-and-you-or-and-r.html
+
+ best tutorial for data frames creation, manipulation and data type conversion
+ https://www.datacamp.com/community/tutorials/15-easy-solutions-data-frame-problems-r
+
+ Good example for using data.table
+ https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html 
+ 
+ Tutorial about lists - elements of different types 
+ https://www.tutorialspoint.com/r/r_lists.htm
+
+ List useful commands for cummunity analysis, diversity indices and their data management
+ http://ichthyology.usm.edu/courses/multivariate/data_management.R
+
+ list of all other tutorials of datacamp, including importing from excel, other import data, plots, and more
+ https://www.datacamp.com/community/tutorials
+
+ General Tutorial for R. See advanced level below
+ https://www.r-bloggers.com/how-to-learn-r-2/
+
+ companion website for ?Advanced R?, Chapman & Hall?s book, designed to improve programming skills
+ http://adv-r.had.co.nz/
+
+ Cheat sheet for dplyr and tidyr packages - Data wrangling, combine dataframes etc
+ http://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
+ Best Tutorial for dplyr:
+ http://genomicsclass.github.io/book/pages/dplyr_tutorial.html
+ tutorial for both dplyr and tidyr:
+ https://rpubs.com/bradleyboehmke/data_wrangling
+
+ for built-in functions see:
+ http://www.statmethods.net/management/functions.html
+
+ to work with dates see:
+http://www.statmethods.net/input/dates.html
+
+# ############### Good tutorials for plots  #######################
+ http://www.cookbook-r.com/Graphs/
+
+ Tutorial for R base graphics:
+ http://rstudio-pubs-static.s3.amazonaws.com/7953_4e3efd5b9415444ca065b1167862c349.html
+
+ A gentle introduction to ggplot
+ https://rpubs.com/karagawa/ggplot2
+
+ Cheatsheet to ggplot2
+ https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
+
+
+ Beautiful plotting in R: A ggplot2 cheatsheet
+ http://zevross.com/blog/2014/08/04/beautiful-plotting-in-r-a-ggplot2-cheatsheet-3/ 
+
+ general ggplot customization
+ http://www.sthda.com/english/articles/32-r-graphics-essentials/125-ggplot-cheat-sheet-for-great-customization/#at_pco=smlre-1.0&at_si=5a8ec70c6213e72a&at_ab=per-2&at_pos=1&at_tot=4
+
+
+ The following is a general catalog for many plotting needs:
+ http://www.sthda.com/english/wiki/ggplot2-essentials
+
+ Remember that ggplot2 requires data in long format. See far below in tutorial for converting wide to long
+
+ A few useful pages from that catalog by www.sthda.com
+ http://www.sthda.com/english/articles/32-r-graphics-essentials/132-plot-grouped-data-box-plot-bar-plot-and-more/
+
+
+
+ http://www.sthda.com/english/articles/32-r-graphics-essentials/133-plot-one-variable-frequency-graph-density-distribution-and-more/
+
+ http://www.sthda.com/english/articles/32-r-graphics-essentials/125-ggplot-cheat-sheet-for-great-customization/
+
+
+ Very detailed and with many examples for plots
+ http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization#at_pco=smlre-1.0&at_si=59995eafbd121a8b&at_ab=per-2&at_pos=3&at_tot=4
+
+
+ Bar Plots
+ http://www.sthda.com/english/wiki/ggplot2-barplots-quick-start-guide-r-software-and-data-visualization#barplot-with-error-bars
+
+ Box plots
+ http://www.sthda.com/english/wiki/ggplot2-boxplot-easy-box-and-whisker-plots-maker-function?url#at_pco=smlre-1.0&at_si=5a8ec70c6213e72a&at_ab=per-2&at_pos=2&at_tot=4
+
+
+ some interesting plots ready for publication - histograms in certain orders etc
+ http://www.sthda.com/english/rpkgs/ggpubr/
+
+
+ Very detailed for multiple plots in one page
+ http://www.sthda.com/english/wiki/ggplot2-easy-way-to-mix-multiple-graphs-on-the-same-page
+
+
+ Photos of irises from the data set "iris"
+ http://statlab.uni-heidelberg.de/data/iris/
+ Deatils of the most common built-in data sets in R
+ http://www.sthda.com/english/wiki/r-built-in-data-sets
+
+ A bit of assistance in formatting R Notebooks
+ https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
+
+# ############## STATISTICS #######################
+
+ an excellent Stats book - with lot's of simple methods including non-parametric
+ https://rcompanion.org/rcompanion/
+ Has also a pdf version of the book (may be in a different order of the chapters)
+ https://rcompanion.org/documents/RCompanionBioStatistics.pdf
+ 
+ 2 examples of useful staff:
+ 
+ Non-parametric regression
+ https://rcompanion.org/handbook/F_12.html
+
+ Confidence Interval calculation - parametric or by bootstrap - very clear
+ http://rcompanion.org/handbook/C_03.html
+
+ T-test, testing assumptions and various versions
+ http://www.sthda.com/english/wiki/t-test-analysis-is-it-always-correct-to-compare-means#how-to-test-the-normality-of-data
+
+ Randomization test of paired samples
+ https://www.uvm.edu/~dhowell/StatPages/ResamplingWithR/RandomMatchedSample/RandomMatchedSampleR.html
+ 
+ Randomization test for independent samples
+ https://www.uvm.edu/~dhowell/StatPages/R/RandomizationTestsWithR/Random2Sample/TwoIndependentSamplesR.html
+
+ correlation plots with visualization
+  http://www.sthda.com/english/wiki/ggcorrplot-visualization-of-a-correlation-matrix-using-ggplot2
+
+ http://www.sthda.com/english/wiki/correlation-matrix-an-r-function-to-do-all-you-need#at_pco=smlre-1.0&at_si=5a8ec70c6213e72a&at_ab=per-2&at_pos=3&at_tot=4
+ 
+ https://www.r-bloggers.com/r-tutorial-series-regression-with-interaction-variables/  Demonstrates how to use the interactions term
+
+ Visualizing Likert data (in questionnairs - e.g., 5 answers: strongly agree, agree, etc)
+ For Analysis - see https://www.joe.org/joe/2012april/tt2.php (the idea - no R code)
+ Also - https://pdfs.semanticscholar.org/e2ad/36059a7894c89ea566811eb82ad92acd88a7.pdf (the same as previous - no code)
+ https://rcompanion.org/handbook/E_03.html
+
+ Paired Wilcoxon analysis and plots
+ http://www.sthda.com/english/wiki/paired-samples-wilcoxon-test-in-r
+
+ ANOVA's, Repeated Measures, Testing assumptions for these + Non-parametrics
+ EZ package
+ https://cran.r-project.org/web/packages/ez/ez.pdf
+ to remember fixed vs. random effects: https://www.researchgate.net/post/What_is_the_difference_between_fixed_effect_and_random_effect_in_repeated_measures_ANOVA
+
+ https://www.r-bloggers.com/r-tutorial-series-two-way-anova-with-unequal-sample-sizes/
+ tutorial about ANOVA with unequal sample sizes
+
+ permutation tests for linear models - ANOVA, ANCOVA, Regression. One example - only ANCOVA, but clear
+https://statmethods.wordpress.com/2012/05/21/permutation-tests-in-r/
+
+ Log-linear model - see Shaked Notebook on mounds
+ https://data.library.virginia.edu/an-introduction-to-loglinear-models/
+ 
+ The output is not explained in this tutorial, so can use the following for interpreting the summary + very nice visualization
+ https://www.dataquest.io/blog/tutorial-poisson-regression-in-r/
+ 
+ But the most comprehensive for all categorical analyses with many options incl. one type of visualization is here:
+ https://r-forge.r-project.org/scm/viewvc.php/*checkout*/pkg/inst/doc/vcd-tutorial.pdf?revision=54&root=vcdextra&pathrev=54
+
+ survival plots (think chameleons)
+ http://www.sthda.com/english/wiki/survminer-r-package-survival-data-analysis-and-visualization
+
+ PCA, CA and others
+  http://www.sthda.com/english/wiki/factoextra-r-package-easy-multivariate-data-analyses-and-elegant-visualization
+
+# ########### Built-in data sets in R or in specific packages ########
+
+ the common iris and mtcars - are part of R.
+
+```{r}
+data("iris")  # use the built-in data set, or the one in the package you are using 
+str(iris)   # see the structure of the data set
+iris  # have a look at the data set
+
+```
+
+# ################## Packages ##############
+
+Note than in R " and ' are compatible (but don't mix together). Single and double quotes delimit character constants. They can be used interchangeably but double quotes are preferred.
+
+
+```{r}
+# In case you are not sure if package is installed - this will only install it if missing
+if (!require(xlsx)) install.packages('xlsx') # use exact syntax as in the example, including teh quote marks!
+
+# then you need to call it as usual
+library("xlsx")
+library(xlsx) # should work also without the quote marks
+
+detach(package:xlsx)  # to remove a package you called in a specific session (sometimes there are incompatibilities, or if you want to know if it is really needed)
+detach('package:xlsx', unload = TRUE, character.only = TRUE) # another version suggested to fully remove remains
+```
+
+
+Working Directory issues (less relevant for notebook users)
+```{r}
+getwd() # to check which is the current working directory (unless you use a notebook, and then the directory is always the directory where the notebook is)
+
+# to change to another working directory (but read above - can't change in a notebook the working directory:
+setwd("U:\\Backup 15 Nov 11\\Amos - 21 Apr 2010\\Ornatus advance\\Aegyptius Einat\\R analysis Garden")
+ # make sure you have the double \\
+
+```
+
+# ################ Input #################
+Different Input methods
+
+Option 1a - find data file yourself
+```{r}
+ 
+dat<-read.csv(file.choose())
+
+```
+
+Option 1b - read an excel file. See more options in: 
+http://www.sthda.com/english/wiki/reading-data-from-excel-files-xls-xlsx-into-r#importing-excel-files-using-xlsx-package
+for this you need to use the package xlsx (that was installed in previous chunk)
+In general, there are sometimes unclear problems with data imported directly from Excel... Best is to import from .csv
+But if you want directly from Excel - this is the way
+
+```{r}
+my_data <- read.xlsx(file.choose(), 1)  # read first sheet (an advantage you don't have in read.csv)
+# alternative, for large data sets:
+my_data <- read.xlsx2(file.choose(), 1)  # Different command, still in the same xlsx package
+
+```
+
+option 1c - use Import Dataset in Top Right window in RStudio. csv or excel.
+
+Option 2a - read a known .csv file
+
+```{r}
+dat<-read.csv("chamData4.csv")  # a copy of this file must be in the working directory, or you need to specify the full path, as below (even in a Notebook)
+
+dat<-read.csv("U:\\from Think Pad\\Documents from Think Pad\\R\\My scripts from all over\\ScriptsCatalog.csv")  # or you need to specify the full path. Remember the double \\ or use one in opposite direction /
+
+dat<-read.csv("U:/from Think Pad/Documents from Think Pad/R/My scripts from all over/ScriptsCatalog.csv")  #  or use only one in opposite direction /
+
+```
+
+
+Option 2b - read a known Excel file
+
+Be aware that it comes as a data frame, and sometimes it causes problems, as it does not recognize a column as numerical vector for some reason. Does not happen when you read as .csv
+
+This example with a different package, unlike previous
+```{r}
+library(readxl)  # enables to import Excel files directly without .csv
+Trees <- read_excel("Trees.xlsx") # must be in the working directory
+
+```
+Option 3 - read from clipboard
+
+does not work in Mac, or you need to write it differently
+
+```{r}
+dat<-read.delim("clipboard")
+```
+
+Option 4 - enter data within the script
+
+```{r}
+NebkaCl <- c(41  ,  300,  250,	210	,268,	338)
+NebkaOp <- c(325  ,145	,55,	277,	197,	285	,328	,276	,312	,290)
+```
+
+
+replace missing values (called NA in R) to 0 (vectorized)
+
+replace negative values to something else
+
+```{r}
+dat[is.na(d)] <- 0
+dat[dat<0] <- 0
+
+```
+Continue from line 281 in original file
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+```
+
+
+
+```{r}
+
+
+# Note that <- is equivalent in most cases to = (preferred by advanced programmers, so if you want to consult with them...). Note that sometimes you may want to use the symbol <<- This will make the variable global, which might be important if you want to read it from within a function, or from loops.
+
+dev.off() # to close all plots created so far in a session
+
+?print # to get help on a function name. The help will appear in lower right window
+
+
+library(Hmisc)
+rcorr(as.matrix(Merged[2:4]), type="spearman") # type can be pearson or spearman
+# Alternatively, 
+# See in Gil's Soc Network for a very nice visualization:
+library("PerformanceAnalytics")
+my_data <- Merged[2:4]
+chart.Correlation(my_data, histogram=TRUE, method = "spearman", pch=10)
+
+
+
+```
